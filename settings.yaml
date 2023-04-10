@@ -1,0 +1,14 @@
+# settings.yaml
+
+cast_time: 1.0
+
+equip_bait: true
+equip_bait_max_tries: 3
+
+repair_tool: true
+repair_tool_every: 100
+
+free_cam_key: "alt"
+move_directions: ["a", "d"]
+
+update_rate: 120
