@@ -3,7 +3,7 @@
 Installation:
 
 ```
-git clone git@github.com:mateus-cortiano/nw-fishing.git
+git clone https://github.com/mateus-cortiano/nw-fishing.git
 cd nw-fishing
 python -m venv .venv
 .venv/Scripts/activate.ps1
