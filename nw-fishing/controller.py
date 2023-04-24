@@ -34,14 +34,10 @@ def proportional_click(
     button: str = "primary",
     duration: float = 0,
 ):
-    pyautogui.click(
-        round(window.width * x),
-        round(window.height * y),
-        clicks,
-        interval,
-        button,
-        duration,
-    )
+    x_abs = window.left + round(window.width * x)
+    y_abs = window.top + round(window.height * y)
+    pyautogui.moveTo(x_abs, y_abs)
+    pyautogui.click(x_abs, y_abs, clicks, interval, button, duration)
 
 
 @_fuzzy
@@ -109,27 +105,33 @@ def equip_bait(window: Window):
 
 def repair_tool(window: Window):
     pyautogui.press("tab")
-    time.sleep(1.5)
-
+    time.sleep(0.8)
+### Fecha Gearset tab
     proportional_click(
-        window=window,
-        x=0.35,
-        y=0.92,
-        clicks=2,
-        duration=0.1,
-        interval=0.1,
-    )
-    time.sleep(1.5)
-
+            window=window,
+            x=0.19,  #365
+            y=0.93,  #999
+            clicks=1,
+            interval=0.1,
+            duration=0.1,
+        )
+    time.sleep(0.8)
+### ctrl + R & click vara
+    pydirectinput.keyDown('ctrl')
+    pydirectinput.keyDown('r')
+    time.sleep(0.1)
     proportional_click(
-        window=window,
-        x=0.57,
-        y=0.60,
-        clicks=2,
-        duration=0.1,
-        interval=0.1,
-    )
-    time.sleep(1.5)
+            window=window,
+            x=0.45,  #870
+            y=0.48,  #520
+            clicks=1,
+            interval=0.1,
+            duration=0.1,
+        )
+    time.sleep(0.1)
+    pydirectinput.keyUp('ctrl')
+    pydirectinput.keyUp('r')
+    time.sleep(0.4)
 
     pyautogui.press("tab")
     time.sleep(1.5)
